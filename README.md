@@ -1,2 +1,2 @@
-# strapi-frontend
-Strapi-based rewrite of the SFUIC frontend
+# strapi-backend
+Strapi-based rewrite of the SFUIC backend
