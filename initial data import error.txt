@@ -1,0 +1,7 @@
+[2024-08-19 16:05:17.392] warn: (Schema Integrity) api::category.category.attributes.slug.targetField does not exist on destination
+[2024-08-19 16:05:17.395] warn: (Schema Integrity) api::page.page.attributes.seo does not exist on destination
+[2024-08-19 16:05:17.395] warn: (Schema Integrity) api::page.page.options.increments does not exist on source
+[2024-08-19 16:05:17.396] warn: (Schema Integrity) api::page.page.options.timestamps does not exist on source
+[2024-08-19 16:05:17.397] warn: (Schema Integrity) api::page.page.attributes.metadata does not exist on source
+? There are differences in schema between the source and destination, and the data listed above will be lost. Are you
+sure you want to continue? Yes
