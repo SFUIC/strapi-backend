@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "doges",
+  "info": {
+    "singularName": "doge",
+    "pluralName": "doges",
+    "displayName": "Doge"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "doggo": {
+      "type": "string"
+    }
+  }
+}
