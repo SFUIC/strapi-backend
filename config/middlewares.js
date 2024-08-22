@@ -1,5 +1,6 @@
-module.exports = [
-  "strapi::logger",
+// ~/strapi-aws-s3/backend/config/middlewares.js
+
+module.exports = ({ env }) => [
   "strapi::errors",
   {
     name: "strapi::security",
@@ -13,14 +14,14 @@ module.exports = [
             "data:",
             "blob:",
             "dl.airtable.com",
-            "res.cloudinary.com",
+            env("AWS_S3_BUCKET_URL"),
           ],
           "media-src": [
             "'self'",
             "data:",
             "blob:",
             "dl.airtable.com",
-            "res.cloudinary.com",
+            env("AWS_S3_BUCKET_URL"),
           ],
           upgradeInsecureRequests: null,
         },
@@ -29,6 +30,7 @@ module.exports = [
   },
   "strapi::cors",
   "strapi::poweredBy",
+  "strapi::logger",
   "strapi::query",
   "strapi::body",
   "strapi::session",
