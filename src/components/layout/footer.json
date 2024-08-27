@@ -21,25 +21,21 @@
       "repeatable": true,
       "component": "links.link"
     },
-    "socialLinks": {
-      "type": "component",
-      "repeatable": true,
-      "component": "links.social-link"
-    },
     "categories": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::category.category"
     },
     "footerBackground": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }

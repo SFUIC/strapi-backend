@@ -85,6 +85,16 @@
           "localized": true
         }
       }
+    },
+    "socialLinks": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "links.social-link"
     }
   }
 }
