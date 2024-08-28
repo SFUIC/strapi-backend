@@ -76,20 +76,6 @@ export interface SharedMedia extends Schema.Component {
   };
 }
 
-export interface MetaMetadata extends Schema.Component {
-  collectionName: 'components_meta_metadata';
-  info: {
-    name: 'Metadata';
-    displayName: 'Metadata';
-    icon: 'robot';
-    description: '';
-  };
-  attributes: {
-    metaTitle: Attribute.String & Attribute.Required;
-    metaDescription: Attribute.Text & Attribute.Required;
-  };
-}
-
 export interface SectionsTestimonialsGroup extends Schema.Component {
   collectionName: 'components_slices_testimonials_groups';
   info: {
@@ -241,51 +227,17 @@ export interface SectionsBottomActions extends Schema.Component {
   };
 }
 
-export interface LayoutNavbar extends Schema.Component {
-  collectionName: 'components_layout_navbars';
+export interface MetaMetadata extends Schema.Component {
+  collectionName: 'components_meta_metadata';
   info: {
-    name: 'Navbar';
-    displayName: 'Navbar';
-    icon: 'map-signs';
+    name: 'Metadata';
+    displayName: 'Metadata';
+    icon: 'robot';
     description: '';
   };
   attributes: {
-    links: Attribute.Component<'links.link', true>;
-    button: Attribute.Component<'links.button-link'>;
-    navbarLogo: Attribute.Component<'layout.logo'>;
-    navbarBackground: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-  };
-}
-
-export interface LayoutLogo extends Schema.Component {
-  collectionName: 'components_layout_logos';
-  info: {
-    displayName: 'Logo';
-    description: '';
-  };
-  attributes: {
-    logoImg: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
-      Attribute.Required;
-    logoText: Attribute.String;
-  };
-}
-
-export interface LayoutFooter extends Schema.Component {
-  collectionName: 'components_layout_footers';
-  info: {
-    displayName: 'Footer';
-    description: '';
-  };
-  attributes: {
-    footerLogo: Attribute.Component<'layout.logo'>;
-    menuLinks: Attribute.Component<'links.link', true>;
-    legalLinks: Attribute.Component<'links.link', true>;
-    categories: Attribute.Relation<
-      'layout.footer',
-      'oneToMany',
-      'api::category.category'
-    >;
-    footerBackground: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    metaTitle: Attribute.String & Attribute.Required;
+    metaDescription: Attribute.Text & Attribute.Required;
   };
 }
 
@@ -360,16 +312,51 @@ export interface LinksButtonLink extends Schema.Component {
   };
 }
 
-export interface BioClub extends Schema.Component {
-  collectionName: 'components_bio_clubs';
+export interface LayoutNavbar extends Schema.Component {
+  collectionName: 'components_layout_navbars';
   info: {
-    displayName: 'club';
-    icon: 'book';
+    name: 'Navbar';
+    displayName: 'Navbar';
+    icon: 'map-signs';
     description: '';
   };
   attributes: {
-    clubJoinLink: Attribute.String;
-    clubIntro: Attribute.Text;
+    links: Attribute.Component<'links.link', true>;
+    button: Attribute.Component<'links.button-link'>;
+    navbarLogo: Attribute.Component<'layout.logo'>;
+    navbarBackground: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
+export interface LayoutLogo extends Schema.Component {
+  collectionName: 'components_layout_logos';
+  info: {
+    displayName: 'Logo';
+    description: '';
+  };
+  attributes: {
+    logoImg: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Attribute.Required;
+    logoText: Attribute.String;
+  };
+}
+
+export interface LayoutFooter extends Schema.Component {
+  collectionName: 'components_layout_footers';
+  info: {
+    displayName: 'Footer';
+    description: '';
+  };
+  attributes: {
+    footerLogo: Attribute.Component<'layout.logo'>;
+    menuLinks: Attribute.Component<'links.link', true>;
+    legalLinks: Attribute.Component<'links.link', true>;
+    categories: Attribute.Relation<
+      'layout.footer',
+      'oneToMany',
+      'api::category.category'
+    >;
+    footerBackground: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
@@ -501,6 +488,19 @@ export interface ElementsFeatureColumn extends Schema.Component {
   };
 }
 
+export interface BioClub extends Schema.Component {
+  collectionName: 'components_bio_clubs';
+  info: {
+    displayName: 'club';
+    icon: 'book';
+    description: '';
+  };
+  attributes: {
+    clubJoinLink: Attribute.String;
+    clubIntro: Attribute.Text;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -510,7 +510,6 @@ declare module '@strapi/types' {
       'shared.rich-text': SharedRichText;
       'shared.quote': SharedQuote;
       'shared.media': SharedMedia;
-      'meta.metadata': MetaMetadata;
       'sections.testimonials-group': SectionsTestimonialsGroup;
       'sections.rich-text': SectionsRichText;
       'sections.pricing': SectionsPricing;
@@ -522,14 +521,14 @@ declare module '@strapi/types' {
       'sections.feature-rows-group': SectionsFeatureRowsGroup;
       'sections.feature-columns-group': SectionsFeatureColumnsGroup;
       'sections.bottom-actions': SectionsBottomActions;
-      'layout.navbar': LayoutNavbar;
-      'layout.logo': LayoutLogo;
-      'layout.footer': LayoutFooter;
+      'meta.metadata': MetaMetadata;
       'links.social-link': LinksSocialLink;
       'links.link': LinksLink;
       'links.button': LinksButton;
       'links.button-link': LinksButtonLink;
-      'bio.club': BioClub;
+      'layout.navbar': LayoutNavbar;
+      'layout.logo': LayoutLogo;
+      'layout.footer': LayoutFooter;
       'elements.testimonial': ElementsTestimonial;
       'elements.plan': ElementsPlan;
       'elements.notification-banner': ElementsNotificationBanner;
@@ -538,6 +537,7 @@ declare module '@strapi/types' {
       'elements.feature': ElementsFeature;
       'elements.feature-row': ElementsFeatureRow;
       'elements.feature-column': ElementsFeatureColumn;
+      'bio.club': BioClub;
     }
   }
 }
