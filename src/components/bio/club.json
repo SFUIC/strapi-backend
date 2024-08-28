@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_bio_clubs",
+  "info": {
+    "displayName": "club",
+    "icon": "book",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "clubJoinLink": {
+      "type": "string"
+    },
+    "clubIntro": {
+      "type": "text"
+    }
+  }
+}
