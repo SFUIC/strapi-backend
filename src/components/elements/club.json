@@ -1,16 +1,16 @@
 {
   "collectionName": "components_bio_clubs",
   "info": {
-    "displayName": "club",
+    "displayName": "Intro",
     "icon": "book",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "clubJoinLink": {
+    "joinLink": {
       "type": "string"
     },
-    "clubIntro": {
+    "introDescription": {
       "type": "text"
     }
   }

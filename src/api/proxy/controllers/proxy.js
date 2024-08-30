@@ -1,6 +1,7 @@
 "use strict";
 
-const casLogin = require("../utils/cas-auth.js"); // Adjust the path as necessary
+const { casLogin } = require("../services/validateTicket.js");
+const { mailFeedback } = require("../services/mailFeedback.js");
 
 module.exports = {
   async validateTicket(ctx) {
@@ -12,6 +13,28 @@ module.exports = {
 
       ctx.status = result.status || 200; // Set status code based on result
       ctx.body = result;
+    } catch (err) {
+      ctx.status = err.status || 500;
+      ctx.body = err.message || "Internal Server Error";
+    }
+  },
+
+  async feedback(ctx) {
+    try {
+      const feedbackData = ctx.request.body; // Get data from POST request body
+
+      await mailFeedback(
+        process.env.SVCMAIL,
+        process.env.SVCMAIL,
+        "SFUIC Feedback Message",
+        feedbackData
+      );
+
+      ctx.status = 201; // Created status code
+      ctx.body = {
+        message: "Feedback received successfully",
+        data: feedbackData,
+      };
     } catch (err) {
       ctx.status = err.status || 500;
       ctx.body = err.message || "Internal Server Error";

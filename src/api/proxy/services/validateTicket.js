@@ -1,16 +1,16 @@
+"use strict";
+
+/**
+ * proxy services
+ */
 const axios = require("axios");
 const convert = require("xml-js");
 
 async function casLogin(serviceUrl, ticket) {
   try {
     // Extract the ticket from the URL
-    console.log("svc: " + serviceUrl);
     if (ticket) {
       // Validate the CAS ticket with the CAS server
-      console.log(
-        "authenticating with " +
-          `https://cas.sfu.ca/cas/serviceValidate?service=${serviceUrl}&ticket=${ticket}`
-      );
       const response = await axios.get(
         `https://cas.sfu.ca/cas/serviceValidate?service=${serviceUrl}&ticket=${ticket}`
       );
@@ -28,7 +28,6 @@ async function casLogin(serviceUrl, ticket) {
       if ("cas:authenticationSuccess" in serviceResponse) {
         const userData = serviceResponse["cas:authenticationSuccess"];
         // const userID: string = userData["cas:user"]["_text"];
-        console.log(userData);
         return userData;
       } else {
         // CAS authentication failure
@@ -48,4 +47,6 @@ async function casLogin(serviceUrl, ticket) {
   }
 }
 
-module.exports = casLogin;
+module.exports = {
+  casLogin,
+};

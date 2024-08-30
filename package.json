@@ -15,6 +15,7 @@
     "strapi": "strapi"
   },
   "dependencies": {
+    "@ckeditor/strapi-plugin-ckeditor": "^0.0.13",
     "@strapi/plugin-cloud": "4.25.8",
     "@strapi/plugin-i18n": "4.25.8",
     "@strapi/plugin-users-permissions": "4.25.8",
@@ -22,6 +23,7 @@
     "@strapi/strapi": "4.25.8",
     "axios": "^1.7.5",
     "better-sqlite3": "^8.6.0",
+    "nodemailer": "^6.9.14",
     "pg": "^8.12.0",
     "pg-connection-string": "^2.6.4",
     "react": "^18.0.0",

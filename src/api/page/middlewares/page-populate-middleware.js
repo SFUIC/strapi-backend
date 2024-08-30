@@ -5,36 +5,8 @@
  */
 
 const populate = {
-  contentSections: {
-    populate: {
-      picture: {
-        fields: ["url", "alternativeText", "caption", "width", "height"],
-      },
-      buttons: {
-        populate: true,
-      },
-      feature: {
-        populate: {
-          fields: ["title", "description", "showLink", "newTab", "url", "text"],
-          media: {
-            fields: ["url", "alternativeText", "caption", "width", "height"],
-          },
-        },
-      },
-      testimonials: {
-        populate: {
-          picture: {
-            fields: ["url", "alternativeText", "caption", "width", "height"],
-          },
-        },
-      },
-      plans: {
-        populate: ["product_features"],
-      },
-      submitButton: {
-        populate: true,
-      },
-    },
+  content: {
+    populate: "*",
   },
 };
 

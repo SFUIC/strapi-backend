@@ -828,6 +828,7 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       'api::author.author'
     >;
     seo: Attribute.Component<'shared.seo'>;
+    rsvpUrl: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -981,7 +982,7 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
           localized: true;
         };
       }>;
-    club: Attribute.Component<'bio.club'> &
+    club: Attribute.Component<'elements.club'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1055,8 +1056,6 @@ export interface ApiPagePage extends Schema.CollectionType {
     description: '';
   };
   options: {
-    increments: true;
-    timestamps: true;
     draftAndPublish: true;
   };
   pluginOptions: {
@@ -1078,7 +1077,7 @@ export interface ApiPagePage extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    contentSections: Attribute.DynamicZone<
+    content: Attribute.DynamicZone<
       [
         'sections.hero',
         'sections.bottom-actions',
@@ -1090,7 +1089,10 @@ export interface ApiPagePage extends Schema.CollectionType {
         'sections.pricing',
         'sections.lead-form',
         'sections.features',
-        'sections.heading'
+        'sections.heading',
+        'elements.feature-banner',
+        'elements.club',
+        'shared.ck-text'
       ]
     > &
       Attribute.SetPluginOptions<{

@@ -9,5 +9,14 @@ module.exports = {
         middlewares: [],
       },
     },
+    {
+      method: "POST",
+      path: "/proxy/feedback",
+      handler: "proxy.feedback",
+      config: {
+        policies: [],
+        middlewares: [],
+      },
+    },
   ],
 };

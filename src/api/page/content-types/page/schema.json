@@ -9,8 +9,6 @@
     "description": ""
   },
   "options": {
-    "increments": true,
-    "timestamps": true,
     "draftAndPublish": true
   },
   "pluginOptions": {
@@ -38,7 +36,7 @@
         }
       }
     },
-    "contentSections": {
+    "content": {
       "type": "dynamiczone",
       "components": [
         "sections.hero",
@@ -51,7 +49,10 @@
         "sections.pricing",
         "sections.lead-form",
         "sections.features",
-        "sections.heading"
+        "sections.heading",
+        "elements.feature-banner",
+        "elements.club",
+        "shared.ck-text"
       ],
       "pluginOptions": {
         "i18n": {
