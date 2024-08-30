@@ -1077,7 +1077,7 @@ export interface ApiPagePage extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    content: Attribute.DynamicZone<
+    chunks: Attribute.DynamicZone<
       [
         'sections.hero',
         'sections.bottom-actions',

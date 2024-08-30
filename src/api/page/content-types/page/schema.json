@@ -36,7 +36,7 @@
         }
       }
     },
-    "content": {
+    "chunks": {
       "type": "dynamiczone",
       "components": [
         "sections.hero",

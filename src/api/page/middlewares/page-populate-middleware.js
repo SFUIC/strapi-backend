@@ -5,7 +5,7 @@
  */
 
 const populate = {
-  content: {
+  chunks: {
     populate: "*",
   },
 };
