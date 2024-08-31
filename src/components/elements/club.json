@@ -7,11 +7,13 @@
   },
   "options": {},
   "attributes": {
-    "joinLink": {
-      "type": "string"
-    },
-    "introDescription": {
+    "description": {
       "type": "text"
+    },
+    "join": {
+      "type": "component",
+      "repeatable": false,
+      "component": "links.button-link"
     }
   }
 }

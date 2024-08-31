@@ -11,19 +11,40 @@
     "title": {
       "type": "string"
     },
-    "emailPlaceholder": {
-      "type": "string"
-    },
     "submitButton": {
       "type": "component",
       "repeatable": false,
       "component": "links.button"
     },
-    "location": {
+    "firstTitle": {
       "type": "string"
     },
-    "description": {
-      "type": "text"
+    "firstPlaceholder": {
+      "type": "string"
+    },
+    "secondTitle": {
+      "type": "string"
+    },
+    "secondPlaceholder": {
+      "type": "string"
+    },
+    "contactTitle": {
+      "type": "string"
+    },
+    "contactPlaceholder": {
+      "type": "string"
+    },
+    "messageTitle": {
+      "type": "string"
+    },
+    "messagePlaceholder": {
+      "type": "string"
+    },
+    "sendSuccessMsg": {
+      "type": "string"
+    },
+    "sendFailMsg": {
+      "type": "string"
     }
   }
 }

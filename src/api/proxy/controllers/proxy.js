@@ -10,7 +10,7 @@ module.exports = {
       const ticket = ctx.query.ticket;
       // @ts-ignore
       const result = await casLogin(serviceUrl, ticket);
-
+      console.log(result);
       ctx.status = result.status || 200; // Set status code based on result
       ctx.body = result;
     } catch (err) {

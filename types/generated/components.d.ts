@@ -152,10 +152,17 @@ export interface SectionsLeadForm extends Schema.Component {
   };
   attributes: {
     title: Attribute.String;
-    emailPlaceholder: Attribute.String;
     submitButton: Attribute.Component<'links.button'>;
-    location: Attribute.String;
-    description: Attribute.Text;
+    firstTitle: Attribute.String;
+    firstPlaceholder: Attribute.String;
+    secondTitle: Attribute.String;
+    secondPlaceholder: Attribute.String;
+    contactTitle: Attribute.String;
+    contactPlaceholder: Attribute.String;
+    messageTitle: Attribute.String;
+    messagePlaceholder: Attribute.String;
+    sendSuccessMsg: Attribute.String;
+    sendFailMsg: Attribute.String;
   };
 }
 
@@ -295,6 +302,20 @@ export interface LinksSocialLink extends Schema.Component {
   };
 }
 
+export interface LinksSessionLink extends Schema.Component {
+  collectionName: 'components_links_session_links';
+  info: {
+    displayName: 'Authentication link';
+    icon: 'user';
+    description: '';
+  };
+  attributes: {
+    loginText: Attribute.String;
+    logoutText: Attribute.String;
+    loggedinText: Attribute.String;
+  };
+}
+
 export interface LinksLink extends Schema.Component {
   collectionName: 'components_links_links';
   info: {
@@ -353,6 +374,7 @@ export interface LayoutNavbar extends Schema.Component {
     button: Attribute.Component<'links.button-link'>;
     navbarLogo: Attribute.Component<'layout.logo'>;
     navbarBackground: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    authentication: Attribute.Component<'links.session-link'>;
   };
 }
 
@@ -539,8 +561,8 @@ export interface ElementsClub extends Schema.Component {
     description: '';
   };
   attributes: {
-    joinLink: Attribute.String;
-    introDescription: Attribute.Text;
+    description: Attribute.Text;
+    join: Attribute.Component<'links.button-link'>;
   };
 }
 
@@ -567,6 +589,7 @@ declare module '@strapi/types' {
       'sections.bottom-actions': SectionsBottomActions;
       'meta.metadata': MetaMetadata;
       'links.social-link': LinksSocialLink;
+      'links.session-link': LinksSessionLink;
       'links.link': LinksLink;
       'links.button': LinksButton;
       'links.button-link': LinksButtonLink;
