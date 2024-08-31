@@ -95,16 +95,6 @@
         }
       },
       "component": "links.social-link"
-    },
-    "club": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "elements.club"
     }
   }
 }
