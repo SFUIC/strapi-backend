@@ -1,12 +1,13 @@
 {
-  "collectionName": "components_shared_ck_texts",
+  "collectionName": "components_shared_rich_text_cks",
   "info": {
-    "displayName": "CKText",
-    "icon": "strikeThrough"
+    "displayName": "CK text",
+    "icon": "brush",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "text": {
+    "body": {
       "type": "customField",
       "options": {
         "output": "HTML",

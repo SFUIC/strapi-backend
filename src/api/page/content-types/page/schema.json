@@ -22,6 +22,9 @@
       "pluginOptions": {
         "i18n": {
           "localized": true
+        },
+        "translate": {
+          "translate": "translate"
         }
       }
     },
@@ -33,6 +36,9 @@
       "pluginOptions": {
         "i18n": {
           "localized": true
+        },
+        "translate": {
+          "translate": "translate"
         }
       }
     },
@@ -45,18 +51,21 @@
         "sections.feature-rows-group",
         "sections.testimonials-group",
         "sections.large-video",
-        "sections.rich-text",
         "sections.pricing",
         "sections.lead-form",
         "sections.features",
         "sections.heading",
         "elements.feature-banner",
         "elements.club",
-        "shared.ck-text"
+        "shared.rich-text-ck",
+        "shared.rich-text"
       ],
       "pluginOptions": {
         "i18n": {
           "localized": true
+        },
+        "translate": {
+          "translate": "translate"
         }
       }
     },
@@ -64,6 +73,9 @@
       "pluginOptions": {
         "i18n": {
           "localized": true
+        },
+        "translate": {
+          "translate": "translate"
         }
       },
       "type": "string",
@@ -73,6 +85,9 @@
       "pluginOptions": {
         "i18n": {
           "localized": true
+        },
+        "translate": {
+          "translate": "translate"
         }
       },
       "type": "string"
@@ -81,6 +96,9 @@
       "pluginOptions": {
         "i18n": {
           "localized": true
+        },
+        "translate": {
+          "translate": "translate"
         }
       },
       "type": "string"
