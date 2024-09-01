@@ -884,7 +884,7 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 256;
       }>;
-    slug: Attribute.UID<'api::article.article', 'title'>;
+    slug: Attribute.UID<'api::article.article', 'title'> & Attribute.Required;
     cover: Attribute.Media<'images' | 'files' | 'videos'> &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1022,15 +1022,41 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   options: {
     draftAndPublish: false;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    name: Attribute.String;
-    slug: Attribute.UID;
+    name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    slug: Attribute.UID<'api::category.category', 'name'>;
     articles: Attribute.Relation<
       'api::category.category',
       'oneToMany',
       'api::article.article'
-    >;
-    description: Attribute.Text;
+    > &
+      Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
+      }>;
+    description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1045,6 +1071,12 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::category.category',
+      'oneToMany',
+      'api::category.category'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -1071,6 +1103,9 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
         i18n: {
           localized: true;
         };
+        translate: {
+          translate: 'translate';
+        };
       }>;
     favicon: Attribute.Media<'images'> &
       Attribute.Required &
@@ -1078,11 +1113,17 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
         i18n: {
           localized: true;
         };
+        translate: {
+          translate: 'translate';
+        };
       }>;
     notificationBanner: Attribute.Component<'elements.notification-banner'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
+        };
+        translate: {
+          translate: 'translate';
         };
       }>;
     navbar: Attribute.Component<'layout.navbar'> &
@@ -1090,11 +1131,17 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
         i18n: {
           localized: true;
         };
+        translate: {
+          translate: 'translate';
+        };
       }>;
     footer: Attribute.Component<'layout.footer'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
+        };
+        translate: {
+          translate: 'translate';
         };
       }>;
     background: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
@@ -1102,11 +1149,17 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
         i18n: {
           localized: true;
         };
+        translate: {
+          translate: 'translate';
+        };
       }>;
     socialLinks: Attribute.Component<'links.social-link', true> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
+        };
+        translate: {
+          translate: 'translate';
         };
       }>;
     createdAt: Attribute.DateTime;

@@ -36,6 +36,12 @@
         "videos",
         "audios"
       ]
+    },
+    "categoryTitle": {
+      "type": "string"
+    },
+    "menuTitle": {
+      "type": "string"
     }
   }
 }
