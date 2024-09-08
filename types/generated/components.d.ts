@@ -342,58 +342,6 @@ export interface LinksButtonLink extends Schema.Component {
   };
 }
 
-export interface LayoutNavbar extends Schema.Component {
-  collectionName: 'components_layout_navbars';
-  info: {
-    name: 'Navbar';
-    displayName: 'Navbar';
-    icon: 'map-signs';
-    description: '';
-  };
-  attributes: {
-    links: Attribute.Component<'links.link', true>;
-    button: Attribute.Component<'links.button-link'>;
-    navbarLogo: Attribute.Component<'layout.logo'>;
-    navbarBackground: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    authentication: Attribute.Component<'links.session-link'>;
-    localeControlText: Attribute.String;
-  };
-}
-
-export interface LayoutLogo extends Schema.Component {
-  collectionName: 'components_layout_logos';
-  info: {
-    displayName: 'Logo';
-    description: '';
-  };
-  attributes: {
-    logoImg: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
-      Attribute.Required;
-    logoText: Attribute.String;
-  };
-}
-
-export interface LayoutFooter extends Schema.Component {
-  collectionName: 'components_layout_footers';
-  info: {
-    displayName: 'Footer';
-    description: '';
-  };
-  attributes: {
-    footerLogo: Attribute.Component<'layout.logo'>;
-    menuLinks: Attribute.Component<'links.link', true>;
-    legalLinks: Attribute.Component<'links.link', true>;
-    categories: Attribute.Relation<
-      'layout.footer',
-      'oneToMany',
-      'api::category.category'
-    >;
-    footerBackground: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    categoryTitle: Attribute.String;
-    menuTitle: Attribute.String;
-  };
-}
-
 export interface ElementsTestimonial extends Schema.Component {
   collectionName: 'components_slices_testimonials';
   info: {
@@ -545,6 +493,58 @@ export interface ElementsClub extends Schema.Component {
   };
 }
 
+export interface LayoutNavbar extends Schema.Component {
+  collectionName: 'components_layout_navbars';
+  info: {
+    name: 'Navbar';
+    displayName: 'Navbar';
+    icon: 'map-signs';
+    description: '';
+  };
+  attributes: {
+    links: Attribute.Component<'links.link', true>;
+    button: Attribute.Component<'links.button-link'>;
+    navbarLogo: Attribute.Component<'layout.logo'>;
+    navbarBackground: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    authentication: Attribute.Component<'links.session-link'>;
+    localeControlText: Attribute.String;
+  };
+}
+
+export interface LayoutLogo extends Schema.Component {
+  collectionName: 'components_layout_logos';
+  info: {
+    displayName: 'Logo';
+    description: '';
+  };
+  attributes: {
+    logoImg: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Attribute.Required;
+    logoText: Attribute.String;
+  };
+}
+
+export interface LayoutFooter extends Schema.Component {
+  collectionName: 'components_layout_footers';
+  info: {
+    displayName: 'Footer';
+    description: '';
+  };
+  attributes: {
+    footerLogo: Attribute.Component<'layout.logo'>;
+    menuLinks: Attribute.Component<'links.link', true>;
+    legalLinks: Attribute.Component<'links.link', true>;
+    categories: Attribute.Relation<
+      'layout.footer',
+      'oneToMany',
+      'api::category.category'
+    >;
+    footerBackground: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    categoryTitle: Attribute.String;
+    menuTitle: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -571,9 +571,6 @@ declare module '@strapi/types' {
       'links.link': LinksLink;
       'links.button': LinksButton;
       'links.button-link': LinksButtonLink;
-      'layout.navbar': LayoutNavbar;
-      'layout.logo': LayoutLogo;
-      'layout.footer': LayoutFooter;
       'elements.testimonial': ElementsTestimonial;
       'elements.plan': ElementsPlan;
       'elements.notification-banner': ElementsNotificationBanner;
@@ -584,6 +581,9 @@ declare module '@strapi/types' {
       'elements.feature-column': ElementsFeatureColumn;
       'elements.feature-banner': ElementsFeatureBanner;
       'elements.club': ElementsClub;
+      'layout.navbar': LayoutNavbar;
+      'layout.logo': LayoutLogo;
+      'layout.footer': LayoutFooter;
     }
   }
 }
