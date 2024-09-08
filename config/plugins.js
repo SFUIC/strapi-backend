@@ -14,6 +14,7 @@ module.exports = ({ env }) => ({
           Bucket: env("AWS_S3_BUCKET"),
         },
       },
+      sizeLimit: 250 * 1024 * 1024, // 256mb in bytes
       actionOptions: {
         upload: {},
         uploadStream: {},

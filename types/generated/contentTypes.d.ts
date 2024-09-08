@@ -1185,41 +1185,6 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
   };
 }
 
-export interface ApiLeadFormSubmissionLeadFormSubmission
-  extends Schema.CollectionType {
-  collectionName: 'lead_form_submissions';
-  info: {
-    singularName: 'lead-form-submission';
-    pluralName: 'lead-form-submissions';
-    displayName: 'Lead form submission';
-    name: 'lead-form-submission';
-    description: '';
-  };
-  options: {
-    increments: true;
-    timestamps: true;
-    draftAndPublish: false;
-  };
-  attributes: {
-    email: Attribute.String;
-    status: Attribute.Enumeration<['seen', 'contacted', 'ignored']>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::lead-form-submission.lead-form-submission',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::lead-form-submission.lead-form-submission',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiPagePage extends Schema.CollectionType {
   collectionName: 'pages';
   info: {
@@ -1326,37 +1291,6 @@ export interface ApiPagePage extends Schema.CollectionType {
   };
 }
 
-export interface ApiProductFeatureProductFeature extends Schema.CollectionType {
-  collectionName: 'product_features';
-  info: {
-    singularName: 'product-feature';
-    pluralName: 'product-features';
-    displayName: 'Product Feature';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::product-feature.product-feature',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::product-feature.product-feature',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1380,9 +1314,7 @@ declare module '@strapi/types' {
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
-      'api::lead-form-submission.lead-form-submission': ApiLeadFormSubmissionLeadFormSubmission;
       'api::page.page': ApiPagePage;
-      'api::product-feature.product-feature': ApiProductFeatureProductFeature;
     }
   }
 }

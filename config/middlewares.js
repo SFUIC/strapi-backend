@@ -43,7 +43,14 @@ module.exports = ({ env }) => [
   "strapi::poweredBy",
   "strapi::logger",
   "strapi::query",
-  "strapi::body",
+  {
+    name: "strapi::body",
+    config: {
+      formidable: {
+        maxFileSize: 250 * 1024 * 1024, // multipart data, modify here limit of uploaded file size
+      },
+    },
+  },
   "strapi::session",
   "strapi::favicon",
   "strapi::public",
